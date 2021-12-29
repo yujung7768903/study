@@ -1,0 +1,19 @@
+[etcd]
+namespace = "local"
+user = ""
+password = ""
+
+[agent]
+mode = "docker"
+agent-sock-port = 6007
+scaling-group = "HPC"
+pid-file = "./agent.pid"
+event-loop = "uvloop"
+
+[etcd.addr]
+host = "127.0.0.1"
+port = 8121
+
+[agent.rpc-listen-addr]
+host = "127.0.0.1"
+port = 6011
