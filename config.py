@@ -3,11 +3,15 @@ from pathlib import Path
 import toml
 from tomlkit import dump, load
 
+cfg_path = './config.toml'
+
 def update_config():
-    with open('./config.toml', 'r') as f:
+    with open(cfg_path, 'r') as f:
         data = load(f)
-        data["agent"]["scaling-group"] = "HPC"
-    with open('./config.toml', 'w') as f:
+    with open(f'{cfg_path}.bak', 'w') as f: # Create backup file
+        dump(data, f)
+    data["agent"]["scaling-group"] = "HPC"
+    with open(cfg_path, 'w') as f:
         dump(data, f)
 
 update_config()
