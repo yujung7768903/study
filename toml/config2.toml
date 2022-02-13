@@ -1,19 +1,13 @@
-[etcd]
-namespace = "local"
-user = ""
-password = ""
+# This is a TOML document.
 
-[agent]
-mode = "docker"
-agent-sock-port = 6007
-scaling-group = "HPC"
-pid-file = "./agent.pid"
-event-loop = "uvloop"
+title = "TOML Example"
 
-[etcd.addr]
-host = "127.0.0.1"
-port = 8121
+[owner]
+name = "Tom Preston-Werner"
+organization = "GitHub" # 주석 보존 확인
 
-[agent.rpc-listen-addr]
-host = "127.0.0.1"
-port = 6011
+[database]
+server = "192.168.1.1"
+ports = [8001, 8001, 8002]
+connection_max = 5000
+enabled = true
