@@ -1,3 +1,5 @@
+# 시간 초과
+
 def solution(id_list, report, k):
     answer = []
     report = list(set(report)) # 중복 제거

@@ -16,3 +16,9 @@ def solution(new_id):
         new_id = new_id + new_id[-1]
     answer = new_id
     return answer
+
+# 정규 표현식
+# |는 or의 의미
+# ^은 []안에 있을 때는 not의 의미, 아닐 때에는 문자열의 시작을 의미
+# $은 문자열의 끝을 의미. foo$는 문자열 끝의 foo를 의미
+# *은 0번 이상 반복, +는 한 번 이상 반복
