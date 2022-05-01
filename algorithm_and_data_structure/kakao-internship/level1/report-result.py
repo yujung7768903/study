@@ -22,16 +22,20 @@ def solution(id_list, report, k):
         if report_num >= k:
             list_stopped_id.append(i)
     print(list_stopped_id)
+    print(list_report_id)
 
     for i in range(len(id_list)):
-        answer_item = 0
-        for j in list_report_id[i]:
-            if j in list_stopped_id:
-                answer_item += 1
-        answer.append(answer_item)
+        report_mail_num = 0
+        for report_id in list_report_id[i]:
+            if report_id in list_stopped_id: # 유저가 신고한 id가 정지된 id 리스트에 있으면 report_mail_num 1증가
+                report_mail_num += 1
+        answer.append(report_mail_num)
 
     # 유저가 신고한 ID가 신고당한 사람이 있는만큼 answer에 추가
     return answer
 
 print(solution(["muzi", "frodo", "apeach", "neo"], ["muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi"], 2))
 # print(solution(["con", "ryan"], ["ryan con", "ryan con", "ryan con", "ryan con"], 3))
+
+# 필요한 연산의 수: (id의 개수 x report 원소 개수) + (id 개수 x 그 id가 신고한 id 개수)
+# 최악의 경우: 1000 x 200,000 + 1000 x 999 = 200000000 + 999000 = 200,999,000

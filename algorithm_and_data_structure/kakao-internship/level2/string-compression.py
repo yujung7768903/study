@@ -1,5 +1,6 @@
 # 문자열 압출
 # 문제 링크: https://programmers.co.kr/learn/courses/30/lessons/60057
+# 해결 못함.
 
 from timeit import repeat
 import re
