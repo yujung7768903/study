@@ -1,28 +1,20 @@
-# 시간초과
 import sys
 from itertools import combinations
-from collections import deque
 import copy
 
 def bfs(room, virus):
     virus_zone = 0
     dx = [-1, 0, 1, 0]
     dy = [0, 1, 0, -1]
-    que = deque()
-    visited = []
-    for i in virus:
-        que.append(i)
-        while que:
-            x, y = que.popleft()
-            for j in range(4):
-                nx = x + dx[j]
-                ny = y + dy[j]
-                if 0 <= nx < n and 0 <= ny < m and room[nx][ny] == 0 and (nx, ny) not in visited:
-                    que.append((nx, ny))
-                    visited.append((nx, ny))
-                    virus_zone += 1
-                    print(f"que: {que}")
-                    print(f"visited: {visited}")
+    while virus:
+        x, y = virus.pop()
+        for j in range(4):
+            nx = x + dx[j]
+            ny = y + dy[j]
+            if 0 <= nx < n and 0 <= ny < m and room[nx][ny] == 0:
+                room[nx][ny] = 2
+                virus_zone += 1
+                virus.append((nx, ny))
 
     print(f"🚫바이러스가 퍼진 곳 개수: {virus_zone}")
     return virus_zone
@@ -36,7 +28,7 @@ def solution():
     for i in range(n):
         lab_low = list(map(int, sys.stdin.readline().split()))
         lab.append(lab_low)
-
+    print(lab)
     for j in range(n):
         for k in range(m):
             if lab[j][k] == 2:
@@ -49,13 +41,13 @@ def solution():
     comb_new_wall = list(combinations(list_0_pos, 3))
     zero_num -= 3
     for comb in comb_new_wall:
+        print(f"========= 벽 위치: {comb} =========")
         room = copy.deepcopy(lab)
         for k, j in comb:
             room[k][j] = 1
-        safe_zone_num = zero_num - bfs(room, list_virus_pos)
+        safe_zone_num = zero_num - bfs(room, copy.deepcopy(list_virus_pos))
         print(f"🔰안전한 곳의 개수: {safe_zone_num}")
         if safe_zone_num > answer: answer = safe_zone_num
-        print(answer)
 
     return answer
     
