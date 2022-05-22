@@ -1,6 +1,9 @@
 # study
 what I studied, what to study
 
+## Data structure
+* [Stack & Queue](https://github.com/yujung7768903/study/blob/main/algorithm_and_data_structure/stack_and_queue/stack_and_queue.md)
+
 ## Algorithm
 * [Greedy Algorithm](https://github.com/yujung7768903/study/pull/29)
 * [Implementation Algorithm](https://github.com/yujung7768903/study/pull/33)
