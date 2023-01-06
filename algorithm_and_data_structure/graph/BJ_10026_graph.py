@@ -19,7 +19,6 @@ for i in range(n - 1):
         if paint[i][j] == paint[i + 1][j]:
             if paint[i][j] == "R":
                 paint_r.append
-        if paint[i][j] == paint[i][j + 1]:
-            
+
 
 print(paint)
